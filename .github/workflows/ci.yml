@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Import smoke test
+        run: |
+          python - << 'PY'
+          import importlib
+          importlib.import_module('backend.app')
+          importlib.import_module('backend.services.family_service')
+          importlib.import_module('backend.services.memory_service')
+          importlib.import_module('backend.services.graph_service')
+          importlib.import_module('backend.services.mcp_service')
+          importlib.import_module('backend.ai.integrated_ai')
+          PY
+
+  frontend_web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend-web
+    env:
+      NEXT_PUBLIC_BACKEND_URL: http://127.0.0.1:5001
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install deps
+        run: npm ci
+      - name: Build
+        run: npm run build

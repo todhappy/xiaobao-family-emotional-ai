@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg15
+    container_name: postgres_family
+    environment:
+      POSTGRES_USER: family_user
+      POSTGRES_PASSWORD: Family@123
+      POSTGRES_DB: family_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j_family
+    environment:
+      NEO4J_AUTH: neo4j/Family@123
+      NEO4JLABS_PLUGINS: '["apoc"]'
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  pg_data:
+  neo4j_data:

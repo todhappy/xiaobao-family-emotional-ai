@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/chat/chat",
+    "pages/memory/memory",
+    "pages/me/me"
+  ],
+  "window": {
+    "navigationBarTitleText": "孝宝·小智",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#3A86FF",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,5 @@
+<view class="card">
+  <input placeholder="记忆内容" bindinput="onInput" value="{{content}}" />
+  <input placeholder="标签" bindinput="onTag" value="{{tag}}" />
+  <button class="btn" bindtap="add">新增记忆</button>
+</view>

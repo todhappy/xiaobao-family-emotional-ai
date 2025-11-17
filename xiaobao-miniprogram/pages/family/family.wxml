@@ -1,0 +1,4 @@
+<view class="card">
+  <view>成员：</view>
+  <view>{{member.name}} · {{member.role}}</view>
+</view>

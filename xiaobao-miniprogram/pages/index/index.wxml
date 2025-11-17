@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="card" wx:if="{{!hasUserInfo}}">
+    <view class="title">孝宝 · 家庭陪伴 AI</view>
+    <button class="btn" bindtap="login">微信登录</button>
+  </view>
+
+  <view wx:else>
+    <view class="card">
+      <view class="title">欢迎, {{userInfo.nickName}}</view>
+      <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+    </view>
+    <view class="card">
+      <navigator url="/pages/chat/chat" class="btn">开始聊天</navigator>
+      <navigator url="/pages/family/family" class="btn" style="margin-left:16rpx;">家庭资料</navigator>
+    </view>
+  </view>
+</view>

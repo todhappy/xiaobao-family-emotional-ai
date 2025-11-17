@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="title">记忆时间轴</view>
+  <view class="card" style="margin-top:24rpx">
+    <block wx:for="{{items}}" wx:key="index">
+      <view style="margin-bottom:16rpx">
+        <view class="subtitle">{{item.title}}</view>
+        <view>{{item.content}}</view>
+      </view>
+    </block>
+  </view>
+</view>

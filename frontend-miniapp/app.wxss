@@ -1,0 +1,6 @@
+page { background: #fff }
+.container { padding: 24rpx }
+.card { background: #f7f9fc; border: 1rpx solid #e6ecf5; border-radius: 24rpx; padding: 24rpx }
+.btn { background: #3A86FF; color: #fff; padding: 20rpx 28rpx; border-radius: 16rpx }
+.title { font-size: 36rpx; color: #1b2a4a }
+.subtitle { font-size: 24rpx; color: #5b6b8b }

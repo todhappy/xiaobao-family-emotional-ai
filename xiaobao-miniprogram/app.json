@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/chat/chat",
+    "pages/family/family",
+    "pages/timeline/timeline"
+  ],
+  "window": {
+    "navigationBarTitleText": "孝宝",
+    "backgroundTextStyle": "light"
+  }
+}

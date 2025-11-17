@@ -1,0 +1,9 @@
+flask==3.0.0
+sqlalchemy==2.0.34
+psycopg2-binary==2.9.10
+neo4j==5.25.0
+requests==2.32.3
+pgvector==0.2.5
+numpy==2.1.2
+flask-socketio==5.3.6
+eventlet==0.36.1

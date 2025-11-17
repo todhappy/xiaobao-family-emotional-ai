@@ -1,0 +1,7 @@
+<view class="card">
+  <view wx:for="{{messages}}" wx:key="index">
+    <view>{{item.role}}: {{item.text}}</view>
+  </view>
+  <input placeholder="输入内容" bindinput="onInput" value="{{input}}" />
+  <button class="btn" bindtap="send">发送</button>
+</view>

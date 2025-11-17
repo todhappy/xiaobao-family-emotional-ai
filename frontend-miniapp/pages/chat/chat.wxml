@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="title">与孝宝小智聊天</view>
+  <view class="card" style="margin-top:24rpx">
+    <input placeholder="输入内容" bindinput="onInput" />
+    <button class="btn" style="margin-top:16rpx" bindtap="send">发送</button>
+    <view style="margin-top:16rpx">
+      <block wx:for="{{msgs}}" wx:key="index">
+        <view class="subtitle">{{item.role}}</view>
+        <view>{{item.content}}</view>
+      </block>
+    </view>
+  </view>
+  </view>

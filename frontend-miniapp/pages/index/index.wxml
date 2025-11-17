@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="card">
+    <view class="title">家庭记忆库</view>
+    <view class="subtitle">今日建议 保持沟通与陪伴</view>
+    <view style="margin-top:24rpx; display:flex; gap:16rpx">
+      <navigator url="/pages/chat/chat" class="btn">AI聊天</navigator>
+      <navigator url="/pages/memory/memory" class="btn">时间轴</navigator>
+    </view>
+  </view>
+  <view class="card" style="margin-top:24rpx">
+    <view class="title">关系图谱</view>
+    <navigator url="/pages/chat/chat" class="btn" style="margin-top:16rpx">进入</navigator>
+  </view>
+  <view class="card" style="margin-top:24rpx">
+    <navigator url="/pages/me/me" class="btn">我的</navigator>
+  </view>
+</view>

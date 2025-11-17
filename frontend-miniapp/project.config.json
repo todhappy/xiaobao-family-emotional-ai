@@ -1,0 +1,11 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "frontend-miniapp",
+  "appid": "",
+  "libVersion": "2.32.3",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "minified": true
+  }
+}

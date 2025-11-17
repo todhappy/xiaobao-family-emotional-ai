@@ -1,0 +1,35 @@
+name: Daily MCP Diagnostic
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-and-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate report
+        run: |
+          python scripts/ci_daily_diagnostic.py
+      - name: Create or update issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs')
+            const path = 'daily_report.md'
+            const body = fs.readFileSync(path, 'utf8')
+            const today = new Date().toISOString().slice(0,10)
+            const title = `Daily MCP Diagnostic — ${today}`
+            const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
+            const { data: issues } = await github.rest.issues.listForRepo({ owner, repo, state: 'open', labels: 'diagnostic,auto-generated,mcp' })
+            let target = issues.find(i => i.title === title)
+            if (target) {
+              await github.rest.issues.update({ owner, repo, issue_number: target.number, body })
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body, labels: ['diagnostic','auto-generated','mcp'] })
+            }
